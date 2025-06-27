@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import './index.css';
+import { InputField } from './Components/InputField';
+import { Standard } from './Components/Standard';
+import { Advanced } from './Components/Advanced';
+import { useState } from 'react';
 
 function App() {
+  const [inputValue, setInputValue] = useState('');
+  const [memory, setMemory] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App-container">
+      <InputField value={inputValue} />
+      <Advanced setInputValue={setInputValue} memory={memory} setMemory={setMemory} />
+      <Standard setInputValue={setInputValue} />
     </div>
   );
 }
